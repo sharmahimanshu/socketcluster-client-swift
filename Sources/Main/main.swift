@@ -42,8 +42,11 @@ var onSetAuthentication = {
     })
 }
 
+// will save from crashing
+if(client != null){
 client.setBasicListener(onConnect: onConnect, onConnectError: nil, onDisconnect: onDisconnect)
 client.setAuthenticationListener(onSetAuthentication: onSetAuthentication, onAuthentication: onAuthentication)
+}
 
 client.onChannel(channelName: "yell", ack: {
     (channelName : String , data : AnyObject?) in
